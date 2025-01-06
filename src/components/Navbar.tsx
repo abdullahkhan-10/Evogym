@@ -2,22 +2,25 @@ import logo from "../assets/Logo.png"
 import Link from "./Link"
 import { allPages } from "../share/enumType"
 import useMediaQuery from "../hook/useMediaQuery";
-import { Bars3Icon } from "@heroicons/react/16/solid";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
 import ActionButton from "./ActionButton";
 
 type Props = {
     selectedPage: allPages;
     setSelectedPage: (value: allPages) => void;
+    isTopOfPage: boolean;
 }
 
-const Navbar = ({selectedPage, setSelectedPage}: Props) => {
+const Navbar = ({selectedPage, setSelectedPage, isTopOfPage}: Props) => {
     const isAboveMediumScreen = useMediaQuery("(min-width:960px)")
     const [isMenuToggle, setIMenuToggle] = useState<boolean>(false)
+
+    const navbarBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow"
     
   return (
     <nav>
-        <div className="fixed top-0 z-30 w-full py-6">
+        <div className={` ${navbarBackground} fixed top-0 z-30 w-full py-6`}>
             <div className="mx-auto w-[83%]">
                 <div className=" flex items-center justify-between w-full gap-16">
                     {/* left side */}
@@ -66,6 +69,44 @@ const Navbar = ({selectedPage, setSelectedPage}: Props) => {
                 </div>
             </div>
         </div>
+
+        {/* Mobile menu modal */}
+        {
+            !isAboveMediumScreen && isMenuToggle && (
+                <div className="fixed right-0 bottom-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl">
+                    {/* close icon  */}
+                    <div className="flex justify-end p-12">
+                        <button onClick={ () => setIMenuToggle(!isMenuToggle)}>
+                            <XMarkIcon className="w-6 h-6 text-gray-400"/>
+                        </button>
+                    </div>
+
+                    <div className="flex flex-col ml-[33%] gap-10 text-2xl">
+                       <Link 
+                            page="Home"
+                            selectedPage={selectedPage}
+                            setSelectedPage={setSelectedPage}
+                        />
+                        <Link 
+                            page="Benefits"
+                            selectedPage={selectedPage}
+                            setSelectedPage={setSelectedPage}
+                        />
+                        <Link 
+                            page="Our Classes"
+                            selectedPage={selectedPage}
+                            setSelectedPage={setSelectedPage}
+                        />
+                        <Link 
+                            page="Contact us"
+                            selectedPage={selectedPage}
+                            setSelectedPage={setSelectedPage}
+                        />
+                    </div>
+
+                </div>
+            )
+        }
     </nav>
   )
 }
