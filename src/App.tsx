@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar"
 // import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid"
 import { allPages } from "./share/enumType"
 import Home from "./components/Home"
+import Benefits from "./components/Benefits"
 
 
 
@@ -31,6 +32,8 @@ function App() {
       <Navbar isTopOfPage={isTopOfPage} selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
 
       <Home setSelectedPage={setSelectedPage}/>
+
+      <Benefits/>
     </div>
   )
 }
