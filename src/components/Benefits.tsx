@@ -3,6 +3,8 @@ import { allPages, BenefitType } from "../share/enumType"
 import { HomeModernIcon, UserGroupIcon, AcademicCapIcon } from "@heroicons/react/16/solid"
 import HText from "./HText";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import ActionButton from "./ActionButton";
+import BenefitPageImage from "../assets/BenefitsPageGraphic.png"
 
 const benefits: Array<BenefitType> = [
   {
@@ -96,6 +98,75 @@ const Benefits = ({ setSelectedPage}: Props) => {
             ))
           }
         </motion.div>
+
+        {/* Graphics and Description  */}
+        <div className="md:flex items-center justify-between gap-20 mt-16 md:mt-28">
+          {/* Graphic  */}
+          <img
+            src={BenefitPageImage}
+            alt="Benefits-image" 
+            className="mx-auto"
+           />
+
+          {/* description  */}
+          <div>
+            {/* title  */}
+            <div className="relative">
+              <div className="before:absolute before:-top-20 before:-left-20 before:z-[1] before:content-abstractwaves">
+                <motion.div
+                 initial = "hidden"
+                 whileInView= "visible"
+                 viewport={{ once: true, amount: 0.5}}
+                 transition={ { duration: 0.5}}
+                 variants={ {
+                  hidden: { opacity: 0, x: 50},
+                  visible: { opacity: 1, x: 0}
+                 }}
+                 >
+                  <HText>
+                    MILLIONS OF HAPPY MEMBERS GETTING {" "}
+                    <span className="text-primary-500">FIT</span>
+                  </HText>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* text  */}
+            <motion.div
+             initial = "hidden"
+             whileInView= "visible"
+             viewport={{ once: true, amount: 0.5}}
+             transition={ {delay: 0.2, duration: 0.5}}
+             variants={ {
+              hidden: { opacity: 0, x: 50},
+              visible: { opacity: 1, x: 0}
+             }}
+            >
+              <p className="my-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui dolore, sequi perspiciatis odio delectus harum amet dolorum ea nihil repellendus maxime eius aperiam quia impedit corporis magnam, laborum commodi consequuntur. Qui dolore, sequi perspiciatis odio delectus harum amet dolorum?</p>
+              <p className="mb-5">Fugit quaerat alias nisi at animi doloribus fugiat inventore obcaecati. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo debitis quisquam sed esse repudiandae facere tempore! Fugit quaerat alias nisi at animi doloribus fugiat inventore obcaecati aperiam qui commodi cum illum, perferendis hic modi maxime.</p>
+            </motion.div>
+
+            {/* button  */}
+            <div className="relative mt-16">
+              <div className="before:absolute before:bottom-[-20] before:right-40 before:z-[-1] before:content-sparkles">
+                <motion.div
+                  initial = "hidden"
+                  whileInView= "visible"
+                  viewport={{ once: true, amount: 0.5}}
+                  transition={ {delay: 0.2, duration: 0.5}}
+                  variants={ {
+                   hidden: { opacity: 0, x: 50},
+                   visible: { opacity: 1, x: 0}
+                  }}
+                 >
+                  <ActionButton setSelectedPage={setSelectedPage}>
+                    Join Now
+                  </ActionButton>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </section>
   )
