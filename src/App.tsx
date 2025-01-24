@@ -5,6 +5,7 @@ import { allPages } from "./share/enumType"
 import Home from "./components/Home"
 import Benefits from "./components/Benefits"
 import OurClasses from "./components/OurClasses"
+import ContactUs from "./components/ContactUs"
 
 
 
@@ -36,6 +37,7 @@ function App() {
 
       <Benefits setSelectedPage={setSelectedPage}/>
       <OurClasses setSelectedPage={setSelectedPage}/>
+      <ContactUs/>
     </div>
   )
 }
