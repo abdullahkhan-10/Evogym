@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar"
 import { allPages } from "./share/enumType"
 import Home from "./components/Home"
 import Benefits from "./components/Benefits"
+import OurClasses from "./components/OurClasses"
 
 
 
@@ -33,7 +34,8 @@ function App() {
 
       <Home setSelectedPage={setSelectedPage}/>
 
-      <Benefits/>
+      <Benefits setSelectedPage={setSelectedPage}/>
+      <OurClasses setSelectedPage={setSelectedPage}/>
     </div>
   )
 }
