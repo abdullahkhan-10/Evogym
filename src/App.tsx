@@ -37,7 +37,7 @@ function App() {
 
       <Benefits setSelectedPage={setSelectedPage}/>
       <OurClasses setSelectedPage={setSelectedPage}/>
-      <ContactUs/>
+      <ContactUs setSelectedPage={setSelectedPage}/>
     </div>
   )
 }
