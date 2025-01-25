@@ -47,6 +47,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
 
         {/* Form and image */}
         <div className="md:flex justify-center gap-8 mt-10">
+          {/* form  */}
           <motion.div
            className="mt-10 basis-[60%] md:mt-0"
            initial = "hidden"
@@ -121,9 +122,9 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             </form>
           </motion.div>
 
-          {/* Graphic  */}
+          {/* Image */}
           <motion.div
-           className="relative mt-16 basis-[40%] md:mt-0"
+           className="mt-16 basis-[40%] md:mt-0"
            initial = "hidden"
            whileInView= "visible"
            viewport={ {once: true, amount: 0.5}}
@@ -133,9 +134,8 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             visible: {opacity: 1, y: 0}
            }}
           >
-            <div>
-              <img className="w-full" src={ContactUsGraphic} alt= "contact-graphic" />
-            </div>
+          
+            <img className="w-full" src={ContactUsGraphic} alt= "contact-graphic" />
           </motion.div>
         </div>
 

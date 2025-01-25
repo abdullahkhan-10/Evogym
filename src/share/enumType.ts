@@ -1,7 +1,7 @@
 export enum allPages {
   Home = "home",
   Benefits = "benefits",
-  OurClasse = "ourclasses",
+  OurClasses = "ourclasses",
   ContactUs = "contactus",
 }
 
